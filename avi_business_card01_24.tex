@@ -1,0 +1,64 @@
+% Resume (and underlying template) (C) Avi Glozman, 2019-2021.
+% See LICENSE for more information.
+
+\documentclass[10pt,oneside,final]{article}
+\usepackage[paperwidth=2in,paperheight=3.5in,margin=0.3cm,noheadfoot,landscape]{geometry}
+\usepackage{hyperref}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{qrcode}
+\usepackage{wrapfig}
+
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+
+\usepackage[many]{tcolorbox}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.pathmorphing}
+
+% Source: https://tex.stackexchange.com/a/277825
+% I also include some personal customization.
+\newtcolorbox{leftli}{
+    enhanced jigsaw, 
+    breakable, % allow page breaks
+    frame hidden, % hide the default frame
+	 colback=gray!15,
+	 arc=0mm,
+	 width=4.445cm,
+    overlay={%
+        \draw [
+            fill=none, % fill paper
+			decoration={brace,amplitude=0},
+            decorate,
+            thick,
+            black
+        ]
+        % right line
+        (frame.south west)--(frame.north west);
+    },
+    % paragraph skips obeyed within tcolorbox
+    parbox=false,
+}
+
+\begin{document}
+	\pagestyle{empty}	
+	\begin{flushleft}	
+		{\huge \textbf{Avi Glozman}}\\
+		{\large Software Engineer, Music Enjoyer\\}
+		\vspace{2mm}
+		\begin{leftli}
+			{\large avi\texttt{@}avigloz.net}\\
+			\vspace{0.2cm}
+			{\large 425\texttt{-}802\texttt{-}6718}\\
+			\vspace{0.2cm}
+			{\large \texttt{@}avigloz}\\
+		\end{leftli}
+		\vspace{-2.7cm}
+		\begin{flushright}
+			\qrcode[nolinks,height=2.225cm]{https://avigloz.net/info/about}
+		\end{flushright}    
+		\vfill
+	\end{flushleft}
+	\textit{23 years old, Brooklyn-based. Let's get coffee :)}
+\end{document}
